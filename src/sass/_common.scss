@@ -1,5 +1,8 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+p {
+  margin: 5px;
+}
 .search-form {
   display: flex;
   justify-content: center;
@@ -14,4 +17,21 @@
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 2px;
+}
+.gallery {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.load-more {
+  margin: 15px auto;
+  // display: block;
+  padding: 10px;
+  color: white;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  // visibility: hidden;
 }

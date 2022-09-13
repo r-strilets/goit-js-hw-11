@@ -1,0 +1,17 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #111160;
+}
+.form-btn {
+  width: 30px;
+  background-image: url(../img/search.svg);
+  background-size: contain;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 2px;
+}

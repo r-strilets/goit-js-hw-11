@@ -11,6 +11,7 @@ const refs = {
 refs.searchForm.addEventListener('submit', onFormSearchClick);
 refs.buttonLoadMore.addEventListener('click', onLoadMoreClick);
 let name;
+let page;
 const perPage = 40;
 async function onFormSearchClick(e) {
   e.preventDefault();

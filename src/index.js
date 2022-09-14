@@ -16,7 +16,7 @@ async function onFormSearchClick(e) {
   e.preventDefault();
   refs.pageGallery.innerHTML = '';
   page = 1;
-  name = e.target.elements.searchQuery.value;
+  name = e.target.elements.searchQuery.value.trim();
   const imagesItem = await getImages(name, page);
   if (imagesItem && imagesItem.data.hits.length > 0) {
     const newImages = imagesItem?.data?.hits;

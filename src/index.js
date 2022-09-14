@@ -13,23 +13,32 @@ refs.buttonLoadMore.addEventListener('click', onLoadMoreClick);
 let name;
 let page;
 const perPage = 40;
-async function onFormSearchClick(e) {
+function onFormSearchClick(e) {
   e.preventDefault();
   refs.pageGallery.innerHTML = '';
   page = 1;
   name = e.target.elements.searchQuery.value.trim();
-  const imagesItem = await getImages(name, page);
-  if (imagesItem && imagesItem.data.hits.length > 0) {
-    const newImages = imagesItem?.data?.hits;
 
-    refs.buttonLoadMore.hidden = false;
-    renderMarkup(newImages);
-    e.target.reset();
-  } else {
-    refs.buttonLoadMore.hidden = true;
-    e.target.reset();
-    return;
-  }
+  getImages(name, page).then(imagesItem => {
+    if (imagesItem?.data?.total === 0) {
+      Notiflix.Notify.failure(
+        'Sorry, there are no images matching your search query. Please try again.'
+      );
+      refs.buttonLoadMore.hidden = true;
+      e.target.reset();
+      return;
+    } else if (imagesItem && imagesItem.data.hits.length > 0) {
+      const newImages = imagesItem?.data?.hits;
+
+      refs.buttonLoadMore.hidden = false;
+      renderMarkup(newImages);
+      e.target.reset();
+    } else {
+      refs.buttonLoadMore.hidden = true;
+      e.target.reset();
+      return;
+    }
+  });
 }
 
 function renderMarkup(arr) {

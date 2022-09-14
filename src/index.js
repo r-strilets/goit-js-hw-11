@@ -27,6 +27,8 @@ async function onFormSearchClick(e) {
     e.target.reset();
   } else {
     refs.buttonLoadMore.hidden = true;
+    e.target.reset();
+    return;
   }
 }
 
@@ -55,7 +57,7 @@ function renderMarkup(arr) {
   return refs.pageGallery.insertAdjacentHTML('beforeend', galleryList);
 }
 
-async function getImages(name = 1, page) {
+async function getImages(name, page = 1) {
   const BASE_URL = 'https://pixabay.com/api/';
   const key = 'key=29896851-043ea774f51ffcbeeabff044d';
 

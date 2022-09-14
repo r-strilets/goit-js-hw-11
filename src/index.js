@@ -26,9 +26,6 @@ async function onFormSearchClick(e) {
     renderMarkup(newImages);
     e.target.reset();
   } else {
-    Notiflix.Notify.failure(
-      'Sorry, there are no images matching your search query. Please try again.'
-    );
     refs.buttonLoadMore.hidden = true;
   }
 }
@@ -58,7 +55,7 @@ function renderMarkup(arr) {
   return refs.pageGallery.insertAdjacentHTML('beforeend', galleryList);
 }
 
-async function getImages(name, page) {
+async function getImages(name = 1, page) {
   const BASE_URL = 'https://pixabay.com/api/';
   const key = 'key=29896851-043ea774f51ffcbeeabff044d';
 
